@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <title>LaunchKey Node.JS SDK - Connect Example</title>
+    <!-- Use jQuery to make this cross browser compatible Ajax calls -->
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <!-- Here's the code to check the status to reload the page when status changes and show the spinner while waiting -->
+    <script type="text/javascript">
+        var spinner = ['|', '/', "-", '\\'],                                // Spinner characters to cycle through
+            times = 0,                                                      // Initialize times status has been checked
+            currentStatusCode = {{currentStatusCode}},                      // Set the current status code from the template value
+            checkStatus = function () {                                     // Define the checkStatus function
+                $.ajax("/status", {                                         // Ajax call to the /status page
+                    method: "GET",                                          // is a GET
+                    success: function (data) {                              // On success
+                        var status = data.status;                           // set the status to the value from the response
+                        if (status != currentStatusCode) {                  // If the status has changed,
+                            window.location = window.location.href;         //   reload the page to get the correct template displayed
+                        } else {                                            // If it hasn't
+                            if (status == 401) {                            // and the status is authorize (401)
+                                $("#spinner").html(spinner[times++ %  4]);  // increment times by one and use it to get the spinner character
+                            }
+                            setTimeout(checkStatus, 500);                   // set a timer to check the status again in 500 milliseconds
+                        }
+                    },
+                    error: function () {                                    // On error
+                        window.location = window.location.href;             // Reset the page to clean up
+                    }
+                })
+            };
+    </script>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 1em;
+        }
+        .error {
+            background-color: red;
+            color: #dddddd;
+            font-weight: 700;
+            font-size: 1.5em;
+            padding: 1em;
+            margin: 1em
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>LaunchKey Node.js SDK - Connect Example</h1>
+    <p>This is an example of utilizing the LaunchKey Node.js SDK in a Connect web application with server side event callbacks</p>
+</div>
+

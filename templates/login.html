@@ -1,0 +1,11 @@
+{{> header currentStatusCode=currentStatusCode}}
+<h2>Log In</h2>
+<p>Please enter a username in the field and press "Launch" to perform a launch request in via LaunchKey</p>
+<form method="POST">
+    <div>
+        <label for="username">Username: </label>
+        <input id="username" name="username">
+        <button type="submit">Launch</button>
+    </div>
+</form>
+{{> footer}}

@@ -1,0 +1,17 @@
+
+{{#error}}
+<div class="error">
+    An error occurred: {{.}}
+</div>
+{{/error}}
+
+
+<script type="text/javascript">
+    if (currentStatusCode != 403) {     // If the currentStatusCode is not forbidden
+        $(window).load(function () {    // register a window load callback
+            checkStatus();              // that starts the check stats process
+        });
+    }
+</script>
+</body>
+</html>

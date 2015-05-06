@@ -1,0 +1,12 @@
+{{> header currentStatusCode=currentStatusCode}}
+<h2>Launching <span id="spinner"></span></h2>
+<p>
+    Check your device for an launch request from your application.  If you don't see a request, try
+    refreshing the orbit screen on your mobile device.  Launch to authorize or cancel to deny the request.
+</p>
+<p>
+    Shortly after you respond the the launch request, you should see the web pag update. If the web page does
+    not update, make sure you have your reverse proxy working correctly.  See the README.md for
+    details on the reverse proxy setup.
+</p>
+{{> footer}}

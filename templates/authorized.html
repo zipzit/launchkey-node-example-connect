@@ -1,0 +1,29 @@
+{{> header currentStatusCode=currentStatusCode}}
+<h2>Logged in</h2>
+<p>You are now orbited with LaunchKey. If you refresh the orbit screen on your mobile devices, you should be
+    able to see that you are currently orbited for your application and how long you have been orbited.</p>
+<p>You can de-orbit in one of two ways:</p>
+<ul>
+    <li>
+        <h4>Mobile device</h4>
+        <p>
+            De-orbit from your mobile device and the page will update shortly after.  If the web page does
+            not update, make sure you have your reverse proxy working correctly.  See the README.md for
+            details on the reverse proxy setup.
+        </p>
+    </li>
+    <li>
+        <h4>Web page</h4>
+        <p>
+            Click the "De-Orbit" button and your mobile device will ber updated.
+            You may have to refresh your devices orbit screen if you do not immediately see the change.
+        </p>
+    </li>
+</ul>
+<form method="POST">
+    <div>
+        <input id="deorbit" name="deorbit" type="hidden" value="deorbit">
+        <button type="submit">De-Orbit</button>
+    </div>
+</form>
+{{> footer}}
