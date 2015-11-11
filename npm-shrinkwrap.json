@@ -238,8 +238,8 @@
     },
     "launchkey-sdk": {
       "version": "1.0.0",
-      "from": "../launchkey-node",
-      "resolved": "file:../launchkey-node",
+      "from": "../launchkey-node-example-connect",
+      "resolved": "file:../launchkey-node-example-connect",
       "dependencies": {
         "moment-timezone": {
           "version": "0.3.1",
